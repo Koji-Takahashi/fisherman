@@ -21,6 +21,13 @@ const schema = a.schema({
       email: a.string(),
     })
     .authorization((allow) => [allow.authenticated()]),
+  ScanRecord: a
+    .model({
+      id: a.id(),
+      userId: a.string(),
+      timestamp: a.timestamp(),
+    })
+    .authorization((allow) => [allow.authenticated()]),  
 });
 
 export type Schema = ClientSchema<typeof schema>;
