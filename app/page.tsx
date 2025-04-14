@@ -7,6 +7,7 @@ import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
+import { Authenticator } from "@aws-amplify/ui-react"; // 追加
 
 Amplify.configure(outputs);
 
@@ -33,6 +34,10 @@ export default function App() {
 
   return (
     <main>
+      <Authenticator.Provider>
+        <Authenticator>
+        </Authenticator>
+      </Authenticator.Provider>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
