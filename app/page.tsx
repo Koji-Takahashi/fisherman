@@ -15,6 +15,7 @@ import { getCurrentUser, fetchAuthSession } from '@aws-amplify/auth';
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
+console.log("📦 client.models:", client.models);
 
 function UserCard() {
   const { user, signOut } = useAuthenticator((context) => [context.user]);
